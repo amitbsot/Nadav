@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[השם שלך] - [הטייטל שלך]</title>
+    <style>
+        /* איפוס ועיצוב בסיסי */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn { display: inline-block; padding: 12px 24px; background: #222; color: #fff; font-weight: bold; border-radius: 4px; border: none; cursor: pointer; }
+        .btn-outline { background: transparent; border: 2px solid #222; color: #222; }
+        
+        /* אזור תפריט */
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+
+        /* אזור 1: Hero */
+        .hero { background: #111; color: #fff; padding: 100px 0; /* הנחיה: הוסף כאן תמונת רקע חצי גוף קונטרסטית */ }
+        .hero .container { display: flex; flex-direction: column; justify-content: center; max-width: 600px; margin-right: 0; }
+        .hero-subtitle { font-size: 1.2rem; color: #ccc; margin-bottom: 10px; }
+        .hero h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero p { font-size: 1.1rem; margin-bottom: 30px; }
+
+        /* אזור 2: פס לוגואים */
+        .logos-strip { background: #eee; padding: 30px 0; text-align: center; }
+        .logos-strip h4 { margin-bottom: 20px; color: #666; font-weight: normal; }
+        .logos-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.6; }
+        .logo-placeholder { background: #ccc; padding: 10px 20px; border-radius: 4px; font-size: 0.9rem; }
+
+        /* אזור 3: אודות */
+        .about { padding: 80px 0; background: #fff; }
+        .about-wrapper { display: flex; gap: 50px; align-items: center; }
+        .about-image { flex: 1; background: #ddd; height: 400px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .about-text { flex: 1; }
+        .about-text h2 { margin-bottom: 20px; font-size: 2rem; }
+        .about-text p { margin-bottom: 15px; }
+
+        /* אזור 4: הרצאות */
+        .lectures { padding: 80px 0; text-align: center; }
+        .lectures h2 { margin-bottom: 40px; font-size: 2.2rem; }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: right; }
+        .card h3 { margin-bottom: 10px; }
+        .card .target-audience { font-weight: bold; color: #555; margin-bottom: 10px; display: block; }
+
+        /* אזור 5: פודקאסט */
+        .podcast { background: #222; color: #fff; padding: 80px 0; text-align: center; }
+        .podcast h2 { margin-bottom: 10px; }
+        .podcast p { margin-bottom: 30px; color: #ccc; }
+        .iframe-placeholder { background: #333; height: 150px; width: 100%; max-width: 600px; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; border: 1px dashed #666; }
+        .listen-on { display: flex; justify-content: center; gap: 15px; }
+
+        /* אזור 6: המלצות */
+        .testimonials { padding: 80px 0; background: #fff; text-align: center; }
+        .testimonials h2 { margin-bottom: 40px; font-size: 2rem; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-block { background: #f9f9f9; padding: 30px; border-radius: 8px; font-style: italic; }
+        .testimonial-block .credit { display: block; margin-top: 15px; font-style: normal; font-weight: bold; }
+
+        /* אזור 7: Footer וצור קשר */
+        footer { background: #111; color: #fff; padding: 60px 0 20px; }
+        .contact-form { max-width: 500px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 15px; text-align: center; }
+        .contact-form input, .contact-form select { padding: 12px; border-radius: 4px; border: none; width: 100%; }
+        .contact-form .btn { width: 100%; font-size: 1.2rem; padding: 15px; background: #e50914; /* צבע כפתור בולט */ }
+        .footer-links { text-align: center; border-top: 1px solid #333; padding-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        
+        /* רספונסיביות בסיסית */
+        @media (max-width: 768px) {
+            .nav-links { display: none; /* למובייל דרוש תפריט המבורגר */ }
+            .about-wrapper { flex-direction: column; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">[לוגו אישי או השם שלך בפונט נקי וסמכותי]</div>
+            <nav class="nav-links">
+                <a href="#about">[הסיפור שלי]</a>
+                <a href="#lectures">[הרצאות וסדנאות]</a>
+                <a href="#podcast">[הפודקאסט]</a>
+                <a href="#testimonials">[המלצות]</a>
+            </nav>
+            <a href="#contact" class="btn">[להזמנת הרצאה]</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="hero-subtitle">[השם שלך] – [הטייטל שלך. למשל: מרצה, יזם חינוכי ומומחה לנוער בסיכון]</span>
+            <h1>[משפט מחץ של 6-8 מילים המציג את הניגודיות שלך]</h1>
+            <p>[2-3 משפטים שמסבירים את הערך לארגון. למשל: הרצאות השראה וכלים פרקטיים לצוותי חינוך...]</p>
+            <a href="#contact" class="btn">[בדקו זמינות להרצאה בארגון שלכם]</a>
+        </div>
+    </section>
+
+    <section class="logos-strip">
+        <div class="container">
+            <h4>[משפט בונה אמון. למשל: ארגונים שכבר בחרו לעשות שינוי אמיתי:]</h4>
+            <div class="logos-grid">
+                <div class="logo-placeholder">[לוגו ארגון 1]</div>
+                <div class="logo-placeholder">[לוגו מוסד חינוכי 2]</div>
+                <div class="logo-placeholder">[לוגו חברה מסחרית 3]</div>
+                <div class="logo-placeholder">[לוגו עמותה 4]</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-wrapper">
+            <div class="about-image">
+                [הנחיה: פריסה של חצי תמונה שמשדרת שטח ואותנטיות]
+            </div>
+            <div class="about-text">
+                <h2>[משפט אישי חזק. למשל: מגיל 16 למדתי לשרוד ברחוב. היום אני מלמד איך לחיות.]</h2>
+                <p><strong>[הקושי]:</strong> [3-4 משפטים על הרקע שלך. המקום הנמוך, עולם הפשע, העבריינות, התחושה שויתרו עליך.]</p>
+                <p><strong>[התפנית וההצלחה]:</strong> [3-4 משפטים על נקודת המפנה. הבחירה בחינוך המיוחד, הדרך הקשה למעלה, וההצלחה בניגוד לכל הסיכויים.]</p>
+                <p><strong>[הייעוד]:</strong> [3-4 משפטים על מה שאתה עושה היום. איך הניסיון מהרחוב מתורגם לכלים פסיכולוגיים ופרקטיים שאתה מעביר הלאה.]</p>
+                <br>
+                <a href="#" class="btn btn-outline">[להאזנה לפרק המלא על הסיפור שלי >>]</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="lectures" class="lectures">
+        <div class="container">
+            <h2>[כותרת ממוקדת לקוח. למשל: לדבר את האמת בגובה העיניים: ההרצאות]</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>[שם ההרצאה: למשל: "מאחורי הסורגים של התודעה"]</h3>
+                    <span class="target-audience">[למי זה מיועד: מנהלים, עובדי חברות, ימי עיון, כנסי הייטק]</span>
+                    <p>[2 משפטים על התוכן. למשל: סיפור על קבלת החלטות, אחריות אישית ויציאה ממשברים...]</p>
+                </div>
+                <div class="card">
+                    <h3>[שם ההרצאה: למשל: "קוד הרחוב"]</h3>
+                    <span class="target-audience">[למי זה מיועד: מורים, יועצים, עובדים סוציאליים, קציני מבחן]</span>
+                    <p>[2 משפטים על התוכן. למשל: הבנת הפסיכולוגיה של נוער בסיכון, שבירת חומות התנגדות...]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="podcast" class="podcast">
+        <div class="container">
+            <h2>[שם הפודקאסט שלכם] - [משפט תיאור קצר. שיחות בלי פילטרים...]</h2>
+            <p>[הנחיה עיצובית: רקע אולפן או צבע כהה עם תמונה שלך מחזיק/מדבר למיקרופון]</p>
+            
+            <div class="iframe-placeholder">
+                [כאן יוטמע קוד Iframe של הפרק הכי טוב מ-Spotify או YouTube]
+            </div>
+            
+            <div class="listen-on">
+                <span class="btn btn-outline" style="color:#fff; border-color:#fff;">[אייקון Spotify]</span>
+                <span class="btn btn-outline" style="color:#fff; border-color:#fff;">[אייקון Apple Podcasts]</span>
+                <span class="btn btn-outline" style="color:#fff; border-color:#fff;">[אייקון YouTube]</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>[משפט סמכות. למשל: מה אומרים מי שכבר חוו את ההרצאה?]</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-block">
+                    "[ציטוט אותנטי של 2-3 שורות שמדגיש את החוויה והכלים שהתקבלו]"
+                    <span class="credit">[שם ושם משפחה], [תפקיד מדויק], [שם הארגון]</span>
+                </div>
+                <div class="testimonial-block">
+                    "[ציטוט אותנטי שמתאר את הרתק של הקהל או את האימפקט שנוצר]"
+                    <span class="credit">[שם ושם משפחה], [תפקיד], [שם הארגון]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="contact-form">
+                <h2>[משפט סגירה חזק. למשל: הגיע הזמן לעשות אימפקט בארגון שלכם.]</h2>
+                <p>[תת כותרת: השאירו פרטים ונחזור אליכם לבניית ההרצאה המדויקת לקהל שלכם.]</p>
+                
+                <form>
+                    <input type="text" placeholder="[שם מלא]">
+                    <input type="text" placeholder="[ארגון / חברה]">
+                    <input type="tel" placeholder="[טלפון נייד]">
+                    <input type="email" placeholder="[אימייל]">
+                    <select>
+                        <option value="">[במה התעניינת? (הרצאה לחברה / הרצאה לצוות חינוך / פודקאסט / אחר)]</option>
+                    </select>
+                    <button type="submit" class="btn">[דברו איתי]</button>
+                </form>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">[לינק לוואטסאפ אישי]</a>
+                <a href="#">[לינק לאינסטגרם]</a>
+                <a href="#">[לינק ללינקדאין]</a>
+                <a href="#">[לינק לטיקטוק]</a>
+                <a href="#">[כתובת אימייל]</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
