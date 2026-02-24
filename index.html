@@ -24,7 +24,7 @@
         html { scroll-behavior: smooth; }
 
         body {
-            /* התיקון הקריטי: clip מונע גלילה אופקית אבל מאפשר ל-sticky לעבוד! */
+‎            /* התיקון הקריטי: clip מונע גלילה אופקית אבל מאפשר ל-sticky לעבוד! */
             overflow-x: clip;
             width: 100%;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -73,7 +73,7 @@
         .hero-subtitle { display: block; font-size: 1.1rem; color: var(--bronze); margin-bottom: 1rem; font-weight: 600; }
         .hero p { color: #E0D6D1; font-size: 1.1rem; margin-bottom: 2.5rem; }
 
-        /* אודות וסמלילים - נשארים מאחורי הקלעים באופן רגיל */
+‎        /* אודות וסמלילים - נשארים מאחורי הקלעים באופן רגיל */
         .logos-strip { background: var(--sand); padding: 3rem 0; text-align: center; position: relative; z-index: 2; }
         .logos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; opacity: 0.6; }
         .logo-placeholder { background: rgba(0,0,0,0.06); padding: 10px 20px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
@@ -84,10 +84,10 @@
         .about-text strong { color: var(--bronze); }
 
         /* ==========================================
-           אפקט סקשן קופא 
+‎           אפקט סקשן קופא 
            ========================================== */
         
-        /* אזור ההרצאות - זה האזור שננעל */
+‎        /* אזור ההרצאות - זה האזור שננעל */
         .lectures { 
             position: sticky; 
             top: 0; /* ננעל לראש המסך */
@@ -98,14 +98,14 @@
             text-align: center; 
             z-index: 1; /* יושב בשכבה התחתונה */
             padding-top: 75px; /* פיצוי על גובה התפריט */
-            margin-bottom: 20vh;
+
         }
         
         .cards-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
         .card { background: var(--cream); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow-md); text-align: right; border-top: 4px solid var(--bronze); }
         .card .target-audience { display: inline-block; background: rgba(200, 121, 65, 0.1); color: var(--bronze); font-weight: 600; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 1rem; }
 
-        /* הפודקאסט - האזור שעולה ודורס את אזור ההרצאות */
+‎        /* הפודקאסט - האזור שעולה ודורס את אזור ההרצאות */
         .podcast { 
             position: relative;
             z-index: 10; /* אינדקס גבוה כדי לדרוס את ההרצאות */
@@ -114,11 +114,12 @@
             text-align: center; 
             min-height: 100vh; /* גם הוא תופס מסך מלא לחוויה דרמטית */
             display: flex;
+            margin-top: 20vh;
             align-items: center;
             box-shadow: 0 -25px 40px rgba(0,0,0,0.4); /* הצל שנותן את תחושת ה"שכבה שעולה" */
         }
         
-        /* כל מה שאחרי הפודקאסט גם חייב להיות עם אינדקס גבוה ורקע אטום */
+‎        /* כל מה שאחרי הפודקאסט גם חייב להיות עם אינדקס גבוה ורקע אטום */
         .testimonials, footer {
             position: relative;
             z-index: 10;
@@ -229,7 +230,7 @@
                 <h2>[שם הפודקאסט שלכם]</h2>
                 <p>[שיחות בלי פילטרים על פשע וחינוך]</p>
                 <div class="iframe-placeholder">
-                    [נגן פודקאסט]
+‎                    [נגן פודקאסט]
                 </div>
                 <div class="listen-on reveal-up delay-1">
                     <span class="btn btn-outline">[Spotify]</span>
@@ -243,7 +244,7 @@
                 <h2 class="reveal-up">[מה אומרים מי שכבר חוו?]</h2>
                 <div class="testimonials-grid">
                     <div class="testimonial-block reveal-up delay-1">
-                        "[ציטוט אותנטי של 2-3 שורות]"
+‎                        "[ציטוט אותנטי של 2-3 שורות]"
                         <div class="credit">שם מלא</div>
                     </div>
                 </div>
